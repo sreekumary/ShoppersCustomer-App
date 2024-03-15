@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">ShoppingCustomer</string>
+    <string name="location">Locations</string>
+    <string name="help">Help</string>
+    <string name="discount">Discount</string>
+    <string name="search">Search</string>
+    <string name="recommendation">More Recommmendations</string>
+    <string name="subtotal">SubTotal</string>
+    <string name="_11_56">$11.56</string>
+    <string name="tax">Tax</string>
+    <string name="you_saved">You Saved</string>
+    <string name="_0_75">$0.75</string>
+    <string name="_1_00">$1.00</string>
+    <string name="_12_31">$12.31</string>
+    <string name="total">Total</string>
+    <string name="finish_pay">Finish Pay</string>
+    <string name="cancel_this">Cancel this purchase and leave</string>
+
+</resources>

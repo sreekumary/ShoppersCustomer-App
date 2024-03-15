@@ -1,0 +1,301 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="barcodeViewModel"
+            type="com.example.shoppingcustomer.viewmodel.BarcodeViewModel" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <!-- Include Custom Toolbar -->
+        <include
+            android:id="@+id/customToolbar"
+            layout="@layout/custom_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/parentConstraint"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/customToolbar"
+            app:layout_constraintStart_toStartOf="parent">
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guidelineVertical"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_end="341dp" />
+
+            <androidx.camera.view.PreviewView
+                android:id="@+id/barcodeScannerView"
+                android:layout_width="441dp"
+                android:layout_height="292dp"
+                android:layout_margin="30dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/recyclerView2"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineVertical" />
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recyclerView2"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_margin="18dp"
+                android:background="@color/white"
+                app:layout_constraintBottom_toTopOf="@+id/removeButton"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/barcodeScannerView" />
+
+            <Button
+                android:id="@+id/removeButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/bg_circular_border"
+                android:drawableStart="@drawable/trah_light"
+                android:layout_margin="30dp"
+                android:text="Remove Item"
+                android:textColor="#838383"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toStartOf="@+id/guidelineVertical"
+                app:layout_constraintHorizontal_bias="0.047"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recyclerView2"
+                app:layout_constraintVertical_bias="0.142" />
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="287dp"
+                android:id="@+id/textWithcart"
+                android:background="@color/white"
+                android:orientation="vertical"
+                android:layout_margin="30dp"
+                android:src="@drawable/cart_img"
+                app:layout_constraintStart_toEndOf="@id/guidelineVertical"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginEnd="30dp"
+                    android:padding="5dp"
+                    android:text="Scan item by placing infront of the camera"
+                    android:textColor="@color/green_toolbar_texts"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="80dp"
+                    android:layout_height="85dp"
+                    android:layout_gravity="center"
+                    android:layout_marginTop="30dp"
+                    android:background="@drawable/cart_img" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/lastView"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/guidelineVertical"
+                app:layout_constraintTop_toBottomOf="@+id/textWithcart">
+
+                <ImageView
+                    android:id="@+id/imageViewCircular"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="14dp"
+                    android:background="@drawable/circular_img"
+                    android:src="@drawable/circular_img"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline3"
+                    app:layout_constraintEnd_toStartOf="@id/recyclerView"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintVertical_bias="0.755" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerView"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_margin="@dimen/cardview_default_elevation"
+                    android:background="@color/white"
+                    app:layout_constraintBottom_toTopOf="@id/button"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/imageViewCircular"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Button
+                    android:id="@+id/button"
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_margin="30dp"
+                    android:layout_marginStart="25dp"
+                    android:backgroundTint="@color/green_toolbar_texts"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:gravity="center"
+                    android:text="@string/recommendation"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/recyclerView" />
+
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_end="400dp" />
+
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:id="@+id/total_tab"
+                    android:layout_width="0dp"
+                    android:layout_height="130dp"
+                    android:layout_margin="10dp"
+                    android:background="@color/background"
+                    app:layout_constraintBottom_toTopOf="@+id/button1"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/guideline3">
+
+                    <TextView
+                        android:id="@+id/one"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/subtotal"
+                        android:textColor="#171616" />
+
+                    <TextView
+                        android:id="@+id/two"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_11_56"
+                        android:textColor="#171616" />
+
+                    <TextView
+                        android:id="@+id/three"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/tax"
+                        android:textColor="#171616" />
+
+                    <TextView
+                        android:id="@+id/four"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_0_75"
+                        android:textColor="#171616" />
+
+                    <TextView
+                        android:id="@+id/five"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/you_saved"
+                        android:textColor="#171616"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/six"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_1_00"
+                        android:textColor="#171616"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/seven"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/total"
+                        android:textColor="#171616"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@+id/eight"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/_12_31"
+                        android:textColor="#171616"
+                        android:textSize="30sp"
+                        android:textStyle="bold" />
+
+                    <androidx.constraintlayout.helper.widget.Flow
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="8dp"
+                        android:layout_marginEnd="8dp"
+                        android:orientation="horizontal"
+                        app:constraint_referenced_ids="one,two,three,four,five,six,seven,eight"
+                        app:flow_horizontalAlign="center"
+                        app:flow_horizontalStyle="spread_inside"
+                        app:flow_maxElementsWrap="2"
+                        app:flow_verticalAlign="center"
+                        app:flow_verticalStyle="spread_inside"
+                        app:flow_wrapMode="chain"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <Button
+                    android:id="@+id/button1"
+                    android:layout_width="match_parent"
+                    android:layout_height="100dp"
+                    android:backgroundTint="@color/green_toolbar_texts"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="@string/finish_pay"
+                    android:textAllCaps="false"
+                    android:textColor="@color/white"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app:layout_constraintBottom_toTopOf="@+id/cancel_text"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/total_tab" />
+
+                <TextView
+                    android:id="@+id/cancel_text"
+                    android:layout_width="0dp"
+                    android:layout_height="30dp"
+                    android:background="@drawable/under_line"
+                    android:gravity="center"
+                    android:text="@string/cancel_this"
+                    android:textColor="#838383"
+                    android:textSize="14sp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/button1" />
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

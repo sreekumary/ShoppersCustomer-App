@@ -1,0 +1,31 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.ShoppingCustomer" parent="Theme.Material3.DayNight.NoActionBar">
+        <!-- Customize your light theme here. -->
+        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
+        <item name="colorPrimary">@color/white</item>
+
+    </style>
+
+    <style name="Theme.ShoppingCustomer" parent="Base.Theme.ShoppingCustomer" />
+
+    <style name="GreenTextHeading">
+        <item name="android:textColor">#1b774c</item>
+        <item name="android:textSize">26sp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:padding">10dp</item>
+
+    </style>
+    <style name="GreenTextToolbar" parent="TextAppearance.AppCompat">
+        <item name="android:textColor">#0e9453</item>
+        <item name="android:textSize">22sp</item>
+
+    </style>
+
+    <style name="ToolbarTextStyle">
+        <item name="android:textColor">@color/green_head</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+        <!-- Add more text attributes as needed -->
+    </style>
+</resources>
